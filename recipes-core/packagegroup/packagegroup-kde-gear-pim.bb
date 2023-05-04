@@ -5,6 +5,6 @@ inherit packagegroup
 PACKAGES = " \
     packagegroup-kde-gear-pim \
 "
-RDEPENDS:packagegroup-star64-plasma = " \
+RDEPENDS:packagegroup-kde-gear-pim = " \
     akonadi \
 "

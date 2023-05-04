@@ -1,0 +1,26 @@
+From 46b68c6ec614cf0db6d5a5d03ba5845cafd20276 Mon Sep 17 00:00:00 2001
+From: Justin Hammond <justin@dynam.ac>
+Date: Fri, 5 May 2023 01:31:21 +0800
+Subject: [PATCH] Fix include path
+
+---
+ lib/SignOn/SignOnQt5Config.cmake.in | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/lib/SignOn/SignOnQt5Config.cmake.in b/lib/SignOn/SignOnQt5Config.cmake.in
+index 523fffb..b2b0b0d 100644
+--- a/lib/SignOn/SignOnQt5Config.cmake.in
++++ b/lib/SignOn/SignOnQt5Config.cmake.in
+@@ -2,6 +2,10 @@
+ #  SIGNONQT_LIBRARIES - The libraries needed to use libsignon-qt
+ #  SIGNONQT_LIBRARIES_STATIC - The static version of libsignon-qt
+ 
++get_filename_component(PACKAGE_PREFIX_DIR ${CMAKE_CURRENT_LIST_DIR}/../../../ ABSOLUTE)
++
++
++
+ set(SIGNONQT_LIBRARIES $${INSTALL_LIBDIR}/lib$${TARGET}.so)
+ set(SIGNONQT_LIBRARIES_STATIC $${INSTALL_LIBDIR}/lib$${TARGET}.a)
+-set(SIGNONQT_INCLUDE_DIRS $${INSTALL_PREFIX}/include/$${TARGET})
+\ No newline at end of file
++set(SIGNONQT_INCLUDE_DIRS ${PACKAGE_PREFIX_DIR}/include/$${TARGET})
