@@ -10,6 +10,7 @@ LICENSE = "GPL-2.0-Only & GPL-2.0-Or-Later & GPL-3.0-Only & LGPL-2.0-Or-Later & 
 
 inherit cmake_plasma
 inherit cmake_kdeapp
+inherit cmake_sysroot
 inherit ki18n
 inherit kcmutils
 inherit kcoreaddons

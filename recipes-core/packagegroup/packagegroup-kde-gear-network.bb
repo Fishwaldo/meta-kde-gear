@@ -1,5 +1,7 @@
 DESCRIPTION = "KDE Gear Network Packages"
 
+PACKAGE_ARCH = "${TUNE_PKGARCH}"
+
 inherit packagegroup
 
 PACKAGES = " \
@@ -7,4 +9,5 @@ PACKAGES = " \
 "
 RDEPENDS:packagegroup-kde-gear-network = " \
     kaccounts-integration \
+    kaccounts-providers \
 "
