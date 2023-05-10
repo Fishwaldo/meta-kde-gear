@@ -14,4 +14,6 @@ RDEPENDS:packagegroup-kde-gear = " \
     packagegroup-kde-gear-utilities \
     packagegroup-kde-gear-system \
     packagegroup-kde-gear-mobile \
+    packagegroup-kde-gear-multimedia \
+    packagegroup-kde-gear-graphics \
 "

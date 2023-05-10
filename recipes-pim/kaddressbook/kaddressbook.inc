@@ -2,9 +2,9 @@
 #
 # SPDX-License-Identifier: MIT
 
-DESCRIPTION = "Calendar for Plasma Mobile"
-SUMMARY = "Calendar for Plasma Mobile"
-HOMEPAGE = "https://invent.kde.org/plasma-mobile/calindori"
+DESCRIPTION = "Address book application to manage your contacts"
+SUMMARY = "Address book application to manage your contacts"
+HOMEPAGE = "https://invent.kde.org/pim/kaddressbook/"
 LICENSE = "BSD-3-Clause & CC0-1.0 & GFDL-1.2-or-later & GPL-2.0-or-later & LGPL-2.0-or-later & Qt-Commercial-exception-1.0"
 
 

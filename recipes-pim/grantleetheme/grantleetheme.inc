@@ -2,9 +2,9 @@
 #
 # SPDX-License-Identifier: MIT
 
-DESCRIPTION = "Helpers to make working with emails through Akonadi easier "
-SUMMARY = "Helpers to make working with emails through Akonadi easier "
-HOMEPAGE = "https://invent.kde.org/pim/akonadi-mime"
+DESCRIPTION = "Library that provides Grantlee theme support"
+SUMMARY = "Library that provides Grantlee theme support"
+HOMEPAGE = "https://invent.kde.org/pim/grantleetheme"
 LICENSE = "BSD-3-Clause & CC0-1.0 & GPL-2.0-or-later & LGPL-2.0-or-later & LGPL-2.1-or-later"
 
 
