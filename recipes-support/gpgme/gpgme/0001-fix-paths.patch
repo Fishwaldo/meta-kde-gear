@@ -1,0 +1,49 @@
+From 1c433c082879bdc4de7230e257f00689d7ed8987 Mon Sep 17 00:00:00 2001
+From: Justin Hammond <justin@dynam.ac>
+Date: Mon, 8 May 2023 00:54:23 +0800
+Subject: [PATCH] fix paths
+
+---
+ lang/cpp/src/GpgmeppConfig.cmake.in.in | 7 ++++---
+ lang/qt/src/QGpgmeConfig.cmake.in.in   | 6 +++---
+ 2 files changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/lang/cpp/src/GpgmeppConfig.cmake.in.in b/lang/cpp/src/GpgmeppConfig.cmake.in.in
+index 73f5eaa..dbee57d 100644
+--- a/lang/cpp/src/GpgmeppConfig.cmake.in.in
++++ b/lang/cpp/src/GpgmeppConfig.cmake.in.in
+@@ -60,11 +60,12 @@ unset(_expectedTargets)
+ 
+ # Create imported target Gpgmepp
+ add_library(Gpgmepp SHARED IMPORTED)
++get_filename_component(PACKAGE_PREFIX_DIR ${CMAKE_CURRENT_LIST_DIR}/../../../../ ABSOLUTE)
+ 
+ set_target_properties(Gpgmepp PROPERTIES
+-  INTERFACE_INCLUDE_DIRECTORIES "@resolved_includedir@/gpgme++;@resolved_includedir@"
+-  INTERFACE_LINK_LIBRARIES "pthread;@resolved_libdir@/libgpgme@libsuffix@;@LIBASSUAN_LIBS@"
+-  IMPORTED_LOCATION "@resolved_libdir@/libgpgmepp@libsuffix@"
++  INTERFACE_INCLUDE_DIRECTORIES "${PACKAGE_PREFIX_DIR}/@resolved_includedir@/gpgme++;@resolved_includedir@"
++  INTERFACE_LINK_LIBRARIES "pthread;${PACKAGE_PREFIX_DIR}/@resolved_libdir@/libgpgme@libsuffix@;@LIBASSUAN_LIBS@"
++  IMPORTED_LOCATION "${PACKAGE_PREFIX_DIR}/@resolved_libdir@/libgpgmepp@libsuffix@"
+ )
+ 
+ if(CMAKE_VERSION VERSION_LESS 2.8.12)
+diff --git a/lang/qt/src/QGpgmeConfig.cmake.in.in b/lang/qt/src/QGpgmeConfig.cmake.in.in
+index a17a19f..a9d3ea5 100644
+--- a/lang/qt/src/QGpgmeConfig.cmake.in.in
++++ b/lang/qt/src/QGpgmeConfig.cmake.in.in
+@@ -60,11 +60,11 @@ unset(_expectedTargets)
+ 
+ # Create imported target QGpgme
+ add_library(QGpgme SHARED IMPORTED)
+-
++get_filename_component(PACKAGE_PREFIX_DIR ${CMAKE_CURRENT_LIST_DIR}/../../../../ ABSOLUTE)
+ set_target_properties(QGpgme PROPERTIES
+-  INTERFACE_INCLUDE_DIRECTORIES "@resolved_includedir@/qgpgme;@resolved_includedir@"
++  INTERFACE_INCLUDE_DIRECTORIES "${PACKAGE_PREFIX_DIR}/@resolved_includedir@/qgpgme;${PACKAGE_PREFIX_DIR}@resolved_includedir@"
+   INTERFACE_LINK_LIBRARIES "Gpgmepp;Qt5::Core"
+-  IMPORTED_LOCATION "@resolved_libdir@/libqgpgme@libsuffix@"
++  IMPORTED_LOCATION "${PACKAGE_PREFIX_DIR}/@resolved_libdir@/libqgpgme@libsuffix@"
+ )
+ 
+ if(CMAKE_VERSION VERSION_LESS 2.8.12)

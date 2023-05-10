@@ -1,7 +1,7 @@
 SUMMARY = "Qt-based client library for the accounts database"
 DESCRIPTION = "Qt-based client library for the accounts database"
 HOMEPAGE = "https://invent.kde.org/utilities/kdebugsettings"
-LICENSE = "LGPL-2.1-Only"
+LICENSE = "LGPL-2.1-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=243b725d71bb5df4a1e5920b344b86ad"
 
 S="${WORKDIR}/git"

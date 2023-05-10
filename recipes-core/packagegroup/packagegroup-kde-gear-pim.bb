@@ -9,4 +9,10 @@ PACKAGES = " \
 "
 RDEPENDS:packagegroup-kde-gear-pim = " \
     akonadi \
+    akonadiconsole \
+    akonadi-import-wizard \
+    kaddressbook \
+    kalarm \
+    kalendar \
+    knotes \
 "

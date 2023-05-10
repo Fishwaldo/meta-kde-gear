@@ -12,4 +12,6 @@ RDEPENDS:packagegroup-kde-gear = " \
     packagegroup-kde-gear-development \
     packagegroup-kde-gear-network \
     packagegroup-kde-gear-utilities \
+    packagegroup-kde-gear-system \
+    packagegroup-kde-gear-mobile \
 "

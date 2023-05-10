@@ -9,4 +9,7 @@ PACKAGES = " \
 "
 RDEPENDS:packagegroup-kde-gear-utilities = " \
     print-manager \
+    kate \
+    kcalc \
+    kwalletmanager \
 "

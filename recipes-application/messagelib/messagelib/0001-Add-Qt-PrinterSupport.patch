@@ -1,0 +1,21 @@
+From 2de06277fc30ae95b20ed985b6158c9951e5f5e0 Mon Sep 17 00:00:00 2001
+From: Justin Hammond <justin@dynam.ac>
+Date: Mon, 8 May 2023 01:29:13 +0800
+Subject: [PATCH] Add Qt::PrinterSupport
+
+---
+ webengineviewer/src/CMakeLists.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/webengineviewer/src/CMakeLists.txt b/webengineviewer/src/CMakeLists.txt
+index e18056a..108998c 100644
+--- a/webengineviewer/src/CMakeLists.txt
++++ b/webengineviewer/src/CMakeLists.txt
+@@ -148,6 +148,7 @@ target_link_libraries(KPim${KF_MAJOR_VERSION}WebEngineViewer
+     KF${KF_MAJOR_VERSION}::I18n
+     KF${KF_MAJOR_VERSION}::WidgetsAddons
+     KF${KF_MAJOR_VERSION}::ConfigCore
++    Qt::PrintSupport
+     )
+ 
+ if (WIN32)
