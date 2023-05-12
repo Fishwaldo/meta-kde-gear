@@ -12,4 +12,5 @@ RDEPENDS:packagegroup-kde-gear-multimedia = " \
     dragon \
     elisa \
     plasmatube \
+    phonon-backend-vlc \
 "

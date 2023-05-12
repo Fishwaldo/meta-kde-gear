@@ -13,6 +13,7 @@ inherit kconfig
 inherit ki18n
 inherit kcoreaddons
 inherit kdoctools
+inherit mime-xdg
 
 DEPENDS = " \
     kio \

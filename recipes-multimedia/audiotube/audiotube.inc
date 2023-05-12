@@ -28,5 +28,26 @@ DEPENDS = " \
     python3-native \
 "
 
+RDEPENDS:${PN} += " \
+    python3-yt-dlp \
+    python3-ytmusicapi \
+    python3-requests \
+    python3-asn1crypto \
+    python3-certifi \
+    python3-cffi \
+    python3-chardet \
+    python3-cryptography \
+    python3-idna \
+    python3-ndg-httpsclient \
+    python3-pkg-resources \
+    python3-ply \
+    python3-pyasn1 \
+    python3-pycparser \
+    python3-pyopenssl \
+    python3-pysocks \
+    python3-setuptools \
+    python3-six python3-urllib3 \
+"
+
 KF5_REUSE_LICENSECHECK_ENABLED="1"
 

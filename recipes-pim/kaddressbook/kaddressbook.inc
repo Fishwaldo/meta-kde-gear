@@ -14,6 +14,7 @@ inherit kcoreaddons
 inherit ki18n
 inherit kdoctools
 inherit reuse_license_checksums
+inherit mime-xdg
 
 DEPENDS = " \
     kcrash \

@@ -14,6 +14,7 @@ inherit ki18n
 inherit kcoreaddons
 inherit kdoctools
 inherit reuse_license_checksums
+inherit mime-xdg
 
 DEPENDS = " \
     kconfigwidgets \
