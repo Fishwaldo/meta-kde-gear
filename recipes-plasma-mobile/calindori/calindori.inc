@@ -15,7 +15,7 @@ inherit ki18n
 inherit reuse_license_checksums
 
 DEPENDS = " \
-    kgirigami \
+    kirigami \
     kcalendarcore \
     knotifications \
     kpeople \
