@@ -1,0 +1,22 @@
+From ed7ca78ad0479c88b351793a61105879a0563cba Mon Sep 17 00:00:00 2001
+From: Justin Hammond <justin@dynam.ac>
+Date: Fri, 26 May 2023 18:15:57 +0000
+Subject: [PATCH] use qemuwrapper for protocolgen
+
+---
+ src/private/CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/private/CMakeLists.txt b/src/private/CMakeLists.txt
+index 805da66..ee96aaf 100644
+--- a/src/private/CMakeLists.txt
++++ b/src/private/CMakeLists.txt
+@@ -8,7 +8,7 @@ endif()
+ 
+ add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/protocol_gen.cpp
+                           ${CMAKE_CURRENT_BINARY_DIR}/protocol_gen.h
+-    COMMAND protocolgen ${CMAKE_CURRENT_SOURCE_DIR}/protocol.xml
++    COMMAND ${CMAKE_BINARY_DIR}/bin/qemuwrapper ${CMAKE_CURRENT_SOURCE_DIR}/protocol.xml
+     DEPENDS protocolgen ${CMAKE_CURRENT_SOURCE_DIR}/protocol.xml
+     COMMENT "Generating Protocol implementation"
+ )

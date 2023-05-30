@@ -1,0 +1,40 @@
+From 36f5738f73fabe6e9522cd1f5db60d15f0e13918 Mon Sep 17 00:00:00 2001
+From: Justin Hammond <justin@dynam.ac>
+Date: Tue, 23 May 2023 18:51:15 +0800
+Subject: [PATCH] Fix compile error
+
+---
+ src/filter/levels/CMakeLists.txt              | 6 +++---
+ src/filter/three_point_balance/CMakeLists.txt | 6 +++---
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/src/filter/levels/CMakeLists.txt b/src/filter/levels/CMakeLists.txt
+index 081fcd8..672d4b2 100644
+--- a/src/filter/levels/CMakeLists.txt
++++ b/src/filter/levels/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ # Set C99 flag for gcc
+-if (CMAKE_COMPILER_IS_GNUCC)
+-    set(CMAKE_C_FLAGS "-std=c99")
+-endif (CMAKE_COMPILER_IS_GNUCC)
++#if (CMAKE_COMPILER_IS_GNUCC)
++#    set(CMAKE_C_FLAGS "-std=c99")
++#endif (CMAKE_COMPILER_IS_GNUCC)
+ 
+ set (SOURCES levels.c)
+ set (TARGET levels)
+diff --git a/src/filter/three_point_balance/CMakeLists.txt b/src/filter/three_point_balance/CMakeLists.txt
+index b3e09f3..d80c31b 100644
+--- a/src/filter/three_point_balance/CMakeLists.txt
++++ b/src/filter/three_point_balance/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ # Set C99 flag for gcc
+-if (CMAKE_COMPILER_IS_GNUCC)
+-    set(CMAKE_C_FLAGS "-std=c99")
+-endif (CMAKE_COMPILER_IS_GNUCC)
++#if (CMAKE_COMPILER_IS_GNUCC)
++#    set(CMAKE_C_FLAGS "-std=c99")
++#endif (CMAKE_COMPILER_IS_GNUCC)
+ 
+ set (SOURCES three_point_balance.c)
+ set (TARGET three_point_balance)

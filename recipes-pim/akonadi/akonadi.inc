@@ -10,11 +10,12 @@ inherit kauth
 inherit mime-xdg
 inherit reuse_license_checksums
 inherit cmake_qt5
+inherit qemu
+inherit mime
 
 KF5_REUSE_LICENSECHECK_ENABLED="1"
     
 DEPENDS = " \
-    protocolgen-native \
     kconfigwidgets \
     kiconthemes \
     kitemmodels \
@@ -22,6 +23,7 @@ DEPENDS = " \
     sqlite3 \
     libxslt-native \
     docbook-xsl-stylesheets-native \
+    qemu-native \
 "
 
 FILES:${PN} = " \
@@ -34,3 +36,15 @@ FILES:${PN} = " \
     ${bindir}/akonadi* \
     ${bindir}/asapcat \
 "
+
+BBCLASSEXTEND = "native" 
+
+do_compile:prepend() {
+    qemu_binary="${@qemu_wrapper_cmdline(d, '${STAGING_DIR_TARGET}',['${B}/src/.libs','${STAGING_DIR_TARGET}/${libdir}','${STAGING_DIR_TARGET}/${base_libdir}'])}"
+    install -d ${B}/bin
+    cat >${B}/bin/qemuwrapper <<EOF
+#!/bin/sh
+${qemu_binary} ${B}/bin/protocolgen "\$@"
+EOF
+    chmod +x ${B}/bin/qemuwrapper
+}

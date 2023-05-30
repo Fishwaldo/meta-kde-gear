@@ -13,4 +13,13 @@ RDEPENDS:packagegroup-kde-gear-multimedia = " \
     elisa \
     plasmatube \
     phonon-backend-vlc \
+    ffmpegthumbs \
+    juk \
+    k3b \
+    kamoso \
+    kasts \
+    kdenlive \
+    frei0r \
+    kmix \
+    kwave \
 "

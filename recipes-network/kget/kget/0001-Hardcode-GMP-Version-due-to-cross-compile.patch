@@ -1,0 +1,28 @@
+From 18d7d3db7c9f0ac48c3ce67c562dc45fc53d5fad Mon Sep 17 00:00:00 2001
+From: Justin Hammond <justin@dynam.ac>
+Date: Wed, 24 May 2023 00:57:57 +0800
+Subject: [PATCH] Hardcode GMP Version due to cross compile
+
+---
+ CMakeLists.txt | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 00ba165..64cf17b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -98,6 +98,14 @@ set_package_properties(Gpgmepp PROPERTIES
+     PURPOSE "GpgME++ is required to have signature verifying support in KGet."
+ )
+ 
++set( _gmp_version_compile_result 
++     "6.2.1"
++     CACHE STRING "Result from TRY_RUN" FORCE)
++
++set( _gmp_version_compile_result__TRYRUN_OUTPUT 
++     "6.2.1"
++     CACHE STRING "Output from TRY_RUN" FORCE)
++
+ find_package(KF5Torrent 21.07.70)
+ set_package_properties(KF5Torrent PROPERTIES
+     DESCRIPTION "Backend Library of KTorrent"

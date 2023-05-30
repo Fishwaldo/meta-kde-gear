@@ -14,6 +14,7 @@ inherit kcoreaddons
 inherit reuse_license_checksums
 
 DEPENDS = " \
+    qtquickcontrols2 \
 "
 
 KF5_REUSE_LICENSECHECK_ENABLED="1"

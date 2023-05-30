@@ -10,4 +10,5 @@ PACKAGES = " \
 RDEPENDS:packagegroup-kde-gear-mobile = " \
     angelfish \
     kclock \
+    qmlkonsole \
 "

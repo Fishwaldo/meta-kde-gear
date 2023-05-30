@@ -1,0 +1,35 @@
+From fdacbcd4031f0bf8683aa6f7eaca9f91fb450683 Mon Sep 17 00:00:00 2001
+From: Justin Hammond <justin@dynam.ac>
+Date: Mon, 29 May 2023 04:12:36 +0000
+Subject: [PATCH] dont export kdwsdl2cpp
+
+---
+ CMakeLists.txt            | 2 +-
+ kdwsdl2cpp/CMakeLists.txt | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 0b1db53..cf8f433 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -284,7 +284,7 @@ add_subdirectory(kdwsdl2cpp)
+ 
+ if(${PROJECT_NAME}_IS_ROOT_PROJECT)
+     export(
+-        TARGETS kdsoap kdsoap-server kdwsdl2cpp
++        TARGETS kdsoap kdsoap-server
+         NAMESPACE KDSoap::
+         FILE "${CMAKE_CURRENT_BINARY_DIR}/KDSoap/KDSoapTargets.cmake"
+     )
+diff --git a/kdwsdl2cpp/CMakeLists.txt b/kdwsdl2cpp/CMakeLists.txt
+index 57ae152..1601384 100644
+--- a/kdwsdl2cpp/CMakeLists.txt
++++ b/kdwsdl2cpp/CMakeLists.txt
+@@ -98,7 +98,6 @@ set_target_properties(kdwsdl2cpp PROPERTIES OUTPUT_NAME kdwsdl2cpp${${PROJECT_NA
+ 
+ install(
+     TARGETS kdwsdl2cpp
+-    EXPORT "KDSoapTargets"
+     RUNTIME DESTINATION ${INSTALL_RUNTIME_DIR}
+     BUNDLE DESTINATION .
+ )

@@ -12,4 +12,26 @@ RDEPENDS:packagegroup-kde-gear-utilities = " \
     kate \
     kcalc \
     kwalletmanager \
+    ark \
+    filelight \
+    kalk \
+    kbackup \
+    kcharselect \
+    kdf \
+    kdialog \
+    keditbookmarks \
+    keysmith \
+    kfind \
+    kgpg \
+    konsole \
+    kongress \
+    krecorder \
+    kteatime \
+    ktimer \
+    ktrip \
+    markdownpart \
+    skanpage \
+    sweeper \
+    okteta \
+    yakuake \
 "

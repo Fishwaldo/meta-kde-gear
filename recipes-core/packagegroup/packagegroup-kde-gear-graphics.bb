@@ -10,4 +10,17 @@ PACKAGES = " \
 RDEPENDS:packagegroup-kde-gear-graphics = " \
     gwenview \
     okular \
+    colord-kde \
+    kamera \
+    kcolorchooser \
+    kdegraphics-thumbnailers \
+    kimagemapeditor \
+    kipi-plugins \
+    koko \
+    kolourpaint \
+    libksane \
+    kruler \
+    skanlite \
+    spectacle \
+    svgpart \
 "

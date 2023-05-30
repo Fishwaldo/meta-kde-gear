@@ -15,4 +15,17 @@ RDEPENDS:packagegroup-kde-gear-pim = " \
     kalarm \
     kalendar \
     knotes \
+    akregator \
+    grantlee-editor \
+    itinerary \
+    kdepim-addons \
+    kleopatra \
+    kmail \
+    kmail-account-wizard \
+    kontact \
+    korganizer \
+    mbox-importer \
+    pim-data-exporter \
+    pim-sieve-editor \
+    zanshin \
 "

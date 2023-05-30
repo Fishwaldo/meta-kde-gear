@@ -12,4 +12,10 @@ RDEPENDS:packagegroup-kde-gear-system = " \
     dolphin-plugins \
     kjournald \
     ksystemlog \
+    kcron \
+    kde-inotify-survey \
+    khelpcenter \
+    kio-admin \
+    kpmcore \
+    partitionmanager \
 "
