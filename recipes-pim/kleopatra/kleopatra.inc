@@ -15,6 +15,7 @@ inherit kcoreaddons
 inherit ki18n
 inherit reuse_license_checksums
 inherit mime-xdg
+inherit mime
 
 DEPENDS = " \
     kcodecs \

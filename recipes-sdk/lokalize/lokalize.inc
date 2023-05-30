@@ -14,6 +14,7 @@ inherit kcoreaddons
 inherit kdoctools
 inherit ki18n
 inherit reuse_license_checksums
+inherit mime-xdg
 
 
 DEPENDS = " \
