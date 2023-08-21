@@ -9,8 +9,14 @@ PACKAGES = " \
 "
 RDEPENDS:packagegroup-kde-gear-pim = " \
     akonadi \
-    akonadiconsole \
+    akonadi-calendar \
+    akonadi-calendar-tools \
+    akonadi-contacts \
     akonadi-import-wizard \
+    akonadi-mime \
+    akonadi-notes \
+    akonadi-search \
+    akonadiconsole \
     kaddressbook \
     kalarm \
     kalendar \
@@ -28,4 +34,5 @@ RDEPENDS:packagegroup-kde-gear-pim = " \
     pim-data-exporter \
     pim-sieve-editor \
     zanshin \
+    kdepim-runtime \
 "
