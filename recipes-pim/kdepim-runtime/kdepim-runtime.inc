@@ -15,6 +15,7 @@ inherit kconfig
 inherit kdoctools 
 inherit reuse_license_checksums
 inherit mime-xdg
+inherit mime
 
 DEPENDS = " \
     shared-mime-info \
