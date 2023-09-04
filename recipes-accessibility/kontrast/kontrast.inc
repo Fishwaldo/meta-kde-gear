@@ -17,6 +17,8 @@ inherit reuse_license_checksums
 
 DEPENDS = " \
     kirigami \
+    futuresql \
+    qcoro \
 "
 
 

@@ -27,6 +27,7 @@ DEPENDS = " \
     kwindowsystem \
     qtmultimedia \
     qtwebsockets \
+    mpv \
 "
 
 

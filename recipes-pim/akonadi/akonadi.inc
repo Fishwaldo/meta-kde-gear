@@ -3,6 +3,10 @@ DESCRIPTION = "TODO"
 HOMEPAGE = "https://invent.kde.org/akonadi/"
 LICENSE = "MIT & BSD-2-Clause & BSD-3-Clause & LGPL-2.0+ & (LGPL-2.1 | LGPL-3.0 | LicenseRef-KDE-Accepted-LGPL)"
 
+SRC_URI += " \
+    file://0001-use-qemuwrapper-for-protocolgen.patch \
+"
+
 inherit cmake_kdeapp
 inherit kcoreaddons
 inherit kconfig

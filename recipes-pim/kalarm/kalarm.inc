@@ -51,4 +51,6 @@ KF5_REUSE_LICENSECHECK_ENABLED="1"
 
 FILES:${PN} += " \
     ${libdir}/grantlee/5.3/ \
+    ${datadir}/icons/breeze/ \
+    ${datadir}/icons/breeze-dark \
 "

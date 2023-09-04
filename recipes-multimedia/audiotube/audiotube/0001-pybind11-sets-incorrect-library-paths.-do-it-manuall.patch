@@ -1,30 +1,30 @@
-From d1d14b288798dd740d042a8d8b2f40cb17e0ca7f Mon Sep 17 00:00:00 2001
+From ad6bb963f56dfae2140ce7baf02adb5a838fb3b0 Mon Sep 17 00:00:00 2001
 From: Justin Hammond <justin@dynam.ac>
-Date: Wed, 10 May 2023 22:56:07 +0800
-Subject: [PATCH] pybind11 sets incorrect library paths... do it manually
+Date: Mon, 4 Sep 2023 10:52:36 +0000
+Subject: [PATCH] pybind sets path to wrong python library
 
 ---
  CMakeLists.txt             | 3 ++-
- src/CMakeLists.txt         | 8 ++++++--
+ src/CMakeLists.txt         | 6 +++++-
  src/example/CMakeLists.txt | 2 +-
- 3 files changed, 9 insertions(+), 4 deletions(-)
+ 3 files changed, 8 insertions(+), 3 deletions(-)
 
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 4779b0d..80ea7e0 100644
+index 1f22926..89925ce 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -40,7 +40,8 @@ kde_enable_exceptions()
+@@ -41,7 +41,8 @@ kde_enable_exceptions()
  
- find_package(Qt${QT_MAJOR_VERSION} ${QT5_MIN_VERSION} REQUIRED COMPONENTS Core Gui Qml QuickControls2 Svg Sql Widgets Concurrent)
+ find_package(Qt${QT_MAJOR_VERSION} ${QT5_MIN_VERSION} REQUIRED COMPONENTS Core Gui Qml QuickControls2 Svg Sql Widgets Concurrent DBus)
  find_package(KF5 ${KF5_MIN_VERSION} REQUIRED COMPONENTS Kirigami2 I18n CoreAddons Crash WindowSystem)
 -find_package(pybind11 REQUIRED)
 +pkg_check_modules(PYTHON3 REQUIRED IMPORTED_TARGET GLOBAL python3-embed>=3)
 +#find_package(pybind11 REQUIRED)
  find_package(Ytdlp REQUIRED RUNTIME)
- find_package(YTMusicAPI 0.24.0 REQUIRED RUNTIME)
+ find_package(YTMusicAPI 1.0.2 REQUIRED RUNTIME)
  find_package(KF5KirigamiAddons 0.6.0 REQUIRED)
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
-index 68c6d53..d9c2111 100644
+index 6226ca3..4462bb3 100644
 --- a/src/CMakeLists.txt
 +++ b/src/CMakeLists.txt
 @@ -6,7 +6,9 @@ add_library(ytm STATIC
@@ -38,16 +38,7 @@ index 68c6d53..d9c2111 100644
  target_include_directories(ytm PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
  target_compile_definitions(ytm PRIVATE -DRANDALL_WAS_HERE)
  
-@@ -16,7 +18,7 @@ add_library(asyncdatabase STATIC
- )
- 
- target_include_directories(asyncdatabase PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
--target_link_libraries(asyncdatabase PUBLIC Qt::Sql)
-+target_link_libraries(asyncdatabase PUBLIC Qt::Sql ${PYTHON3_LIBRARIES})
- 
- add_subdirectory(example)
- 
-@@ -42,6 +44,7 @@ add_executable(audiotube
+@@ -36,6 +38,7 @@ add_executable(audiotube
      blur.cpp
      clipboard.cpp
  )
@@ -55,21 +46,24 @@ index 68c6d53..d9c2111 100644
  
  target_link_libraries(audiotube
      Qt::Core
-@@ -58,6 +61,7 @@ target_link_libraries(audiotube
-     KF5::WindowSystem
+@@ -54,6 +57,7 @@ target_link_libraries(audiotube
+     QCoro${QT_MAJOR_VERSION}::Core
+     declarative
      ytm
-     asyncdatabase
 +    ${PYTHON3_LIBRARIES}
  )
  
  target_compile_definitions(audiotube PRIVATE
 diff --git a/src/example/CMakeLists.txt b/src/example/CMakeLists.txt
-index 774f188..29f0c6c 100644
+index c387b31..3ed550a 100644
 --- a/src/example/CMakeLists.txt
 +++ b/src/example/CMakeLists.txt
-@@ -3,4 +3,4 @@
+@@ -2,4 +2,4 @@
+ #
  # SPDX-License-Identifier: BSD-2-Clause
  
- add_executable(ytm_example main.cpp)
--target_link_libraries(ytm_example PRIVATE ytm)
-+target_link_libraries(ytm_example PUBLIC ${PYTHON3_LIBRARIES} ytm ${PYTHON3_LIBRARIES})
+-ecm_add_test(main.cpp TEST_NAME test_extractor LINK_LIBRARIES ytm)
++ecm_add_test(main.cpp TEST_NAME test_extractor LINK_LIBRARIES ${PYTHON3_LIBRARIES} ytm ${PYTHON3_LIBRARIES})
+-- 
+2.25.1
+

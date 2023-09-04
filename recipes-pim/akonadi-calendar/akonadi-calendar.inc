@@ -30,6 +30,7 @@ DEPENDS = " \
     kidentitymanagement \
     kcalutils \
     akonadi-contacts \
+    messagelib \
 "
 
 KF5_REUSE_LICENSECHECK_ENABLED="1"

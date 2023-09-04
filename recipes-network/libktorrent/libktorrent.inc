@@ -7,6 +7,9 @@ SUMMARY = "BitTorrent protocol implementation"
 HOMEPAGE = "https://invent.kde.org/network/libktorrent"
 LICENSE = " BSD-3-Clause & CC0-1.0 & GPL-2.0-or-later & MIT"
 
+SRC_URI += " \
+    file://0001-fix-cross-compile-test-for-GMP-version.patch \
+"
 
 inherit cmake_plasma
 inherit ki18n

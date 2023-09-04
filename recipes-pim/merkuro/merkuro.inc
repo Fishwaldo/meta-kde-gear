@@ -41,7 +41,14 @@ DEPENDS = " \
 KF5_REUSE_LICENSECHECK_ENABLED="1"
 
 FILES:${PN} += " \
-    ${libdir}/qml/org/kde/kalendar \
+    ${libdir}/qml/org/kde/merkuro \
     ${libdir}/qml/org/kde/akonadi/ \
-    ${datadir}/plasma/plasmoids/org.kde.kalendar.contact/ \
+    ${datadir}/plasma/plasmoids/org.kde.merkuro.contact/ \
+"
+
+RREPLACES:${PN} += " \
+    kalendar \
+"
+RCONFLICTS:${PN} += " \
+    kalendar \
 "

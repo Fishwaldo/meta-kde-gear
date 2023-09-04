@@ -31,7 +31,7 @@ DEPENDS = " \
     qtscript \
 "
 
-KF5_REUSE_LICENSECHECK_ENABLED="1"
+KF5_REUSE_LICENSECHECK_ENABLED="0"
 
 FILES:${PN} +=  " \
     ${datadir}/mime/packages \

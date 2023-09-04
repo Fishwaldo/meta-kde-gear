@@ -7,6 +7,9 @@ SUMMARY = "Powerful BitTorrent client"
 HOMEPAGE = "https://invent.kde.org/network/ktorrent"
 LICENSE = " GPL-2.0-only & GPL-2.0-or-later & GPL-3.0-only & LGPL-2.0-only & LicenseRef-KDE-Accepted-GPL & Qt-Commercial-exception-1.0"
 
+SRC_URI += " \
+    file://0001-Hardcode-gmp-library-version.patch \
+"
 
 inherit cmake_plasma
 inherit kcmutils

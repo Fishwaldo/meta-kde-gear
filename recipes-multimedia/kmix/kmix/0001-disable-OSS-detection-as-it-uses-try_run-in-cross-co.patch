@@ -1,0 +1,120 @@
+From aa3fabc88e98f2f073133d71f66ae1fea1822411 Mon Sep 17 00:00:00 2001
+From: Justin Hammond <justin@dynam.ac>
+Date: Mon, 4 Sep 2023 10:36:55 +0000
+Subject: [PATCH] disable OSS detection as it uses try_run in cross compile
+
+---
+ CMakeLists.txt | 86 +++++++++++++++++++++++++-------------------------
+ 1 file changed, 43 insertions(+), 43 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ca9d7af..acaee65 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -98,60 +98,60 @@ if (NOT (OSS4_INCLUDES STREQUAL ""))
+   message(STATUS "OSS4 includes: ${OSS4_INCLUDES}")
+ endif ()
+ 
+-check_include_file("soundcard.h" HAVE_SOUNDCARD_H)
+-check_include_file("sys/soundcard.h" HAVE_SYS_SOUNDCARD_H)
+-if (HAVE_SOUNDCARD_H OR HAVE_SYS_SOUNDCARD_H)
+-  add_definitions(-DHAVE_OSS_MIXER)
+-  set(HAVE_OSS_MIXER true)
+-  if (HAVE_SOUNDCARD_H)
+-    set(TEST_COMPILE_FLAGS "${TEST_COMPILE_FLAGS} -DHAVE_SOUNDCARD_H")
+-    add_definitions(-DHAVE_SOUNDCARD_H)
+-  endif ()
+-  if (HAVE_SYS_SOUNDCARD_H)
+-    set(TEST_COMPILE_FLAGS "${TEST_COMPILE_FLAGS} -DHAVE_SYS_SOUNDCARD_H")
+-    add_definitions(-DHAVE_SYS_SOUNDCARD_H)
+-  endif ()
+-
++#check_include_file("soundcard.h" HAVE_SOUNDCARD_H)
++#check_include_file("sys/soundcard.h" HAVE_SYS_SOUNDCARD_H)
++#if (HAVE_SOUNDCARD_H OR HAVE_SYS_SOUNDCARD_H)
++#  add_definitions(-DHAVE_OSS_MIXER)
++#  set(HAVE_OSS_MIXER true)
++#  if (HAVE_SOUNDCARD_H)
++#    set(TEST_COMPILE_FLAGS "${TEST_COMPILE_FLAGS} -DHAVE_SOUNDCARD_H")
++#    add_definitions(-DHAVE_SOUNDCARD_H)
++#  endif ()
++#  if (HAVE_SYS_SOUNDCARD_H)
++#    set(TEST_COMPILE_FLAGS "${TEST_COMPILE_FLAGS} -DHAVE_SYS_SOUNDCARD_H")
++#    add_definitions(-DHAVE_SYS_SOUNDCARD_H)
++#  endif ()
++#
+   # Running a program is hopefully more reliable than trying to
+   # grep through header files to find a definition.  Need try_run()
+   # here so as to be able to read the output result.
+-  try_run(TEST_RUN_RESULT TEST_COMPILE_RESULT
+-          ${CMAKE_CURRENT_BINARY_DIR}
+-          SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/ossversion.c
+-          COMPILE_DEFINITIONS "${TEST_COMPILE_FLAGS}"
+-          RUN_OUTPUT_VARIABLE TEST_RESULT_VERSION)
++#  try_run(TEST_RUN_RESULT TEST_COMPILE_RESULT
++#          ${CMAKE_CURRENT_BINARY_DIR}
++#          SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/ossversion.c
++#          COMPILE_DEFINITIONS "${TEST_COMPILE_FLAGS}"
++#          RUN_OUTPUT_VARIABLE TEST_RESULT_VERSION)
+   #message(STATUS "TEST_RUN_RESULT= ${TEST_RUN_RESULT}")
+   #message(STATUS "TEST_COMPILE_RESULT= ${TEST_COMPILE_RESULT}")
+   #message(STATUS "TEST_RESULT_VERSION= ${TEST_RESULT_VERSION}")
+ 
+-  if (${TEST_COMPILE_RESULT} AND (${TEST_RUN_RESULT} EQUAL 0))
+-    message(STATUS "Detected OSS version ${TEST_RESULT_VERSION}")
+-    if (${TEST_RESULT_VERSION} GREATER_EQUAL 0x040000)
+-      message(STATUS "Building with OSS 4 support")
+-      set(HAVE_OSS_4 true)
+-      add_definitions(-DHAVE_OSS_4)
+-      set(SUPPORTED_BACKENDS ${SUPPORTED_BACKENDS} "OSS4")
++#  if (${TEST_COMPILE_RESULT} AND (${TEST_RUN_RESULT} EQUAL 0))
++#    message(STATUS "Detected OSS version ${TEST_RESULT_VERSION}")
++#    if (${TEST_RESULT_VERSION} GREATER_EQUAL 0x040000)
++#      message(STATUS "Building with OSS 4 support")
++#      set(HAVE_OSS_4 true)
++#      add_definitions(-DHAVE_OSS_4)
++#      set(SUPPORTED_BACKENDS ${SUPPORTED_BACKENDS} "OSS4")
+ 
+       # This is included in 4Front OSS 4 but not in standard BSD.
+       # Not possible to test at compile time.  Both of those appear
+       # to have sys/soundcard.h and not soundcard.h installed.
+-      check_struct_has_member(oss_mixerinfo devnode sys/soundcard.h HAVE_MIXERINFO_DEVNODE)
+-      if (HAVE_MIXERINFO_DEVNODE)
+-	add_definitions(-DHAVE_MIXERINFO_DEVNODE)
+-      endif ()
+-    else ()
+-      message(STATUS "Building with OSS 3 support")
+-      set(HAVE_OSS_3 true)
+-      add_definitions(-DHAVE_OSS_3)
+-      set(SUPPORTED_BACKENDS ${SUPPORTED_BACKENDS} "OSS")
+-    endif ()
+-  else ()
+-    message(STATUS "Unable to get OSS version, assuming 3")
+-    set(HAVE_OSS_3 true)
+-    add_definitions(-DHAVE_OSS_3)
+-    set(SUPPORTED_BACKENDS ${SUPPORTED_BACKENDS} "OSS")
+-  endif ()
+-endif ()
++#      check_struct_has_member(oss_mixerinfo devnode sys/soundcard.h HAVE_MIXERINFO_DEVNODE)
++#      if (HAVE_MIXERINFO_DEVNODE)
++#	add_definitions(-DHAVE_MIXERINFO_DEVNODE)
++#      endif ()
++#    else ()
++#      message(STATUS "Building with OSS 3 support")
++#      set(HAVE_OSS_3 true)
++#      add_definitions(-DHAVE_OSS_3)
++#      set(SUPPORTED_BACKENDS ${SUPPORTED_BACKENDS} "OSS")
++#    endif ()
++#  else ()
++#    message(STATUS "Unable to get OSS version, assuming 3")
++#    set(HAVE_OSS_3 true)
++#    add_definitions(-DHAVE_OSS_3)
++#    set(SUPPORTED_BACKENDS ${SUPPORTED_BACKENDS} "OSS")
++#  endif ()
++#endif ()
+ 
+ # PulseAudio, optional
+ find_package(PulseAudio "${PA_MIN_VERSION}")
+-- 
+2.25.1
+

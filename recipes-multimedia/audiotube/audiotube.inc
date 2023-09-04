@@ -7,6 +7,10 @@ SUMMARY = "Client for YouTube Music"
 HOMEPAGE = "https://invent.kde.org/multimedia/audiotube"
 LICENSE = "BSD-2-Clause & CC0-1.0 & GPL-2.0-only & GPL-2.0-or-later & GPL-3.0-only & LGPL-2.1-or-later & LicenceRef-KDE-Accepted-GPL"
 
+SRC_URI += " \
+    file://0001-pybind11-sets-incorrect-library-paths.-do-it-manuall.patch \
+"
+    
 
 inherit cmake_plasma
 inherit kcoreaddons
@@ -26,6 +30,8 @@ DEPENDS = " \
     kirigami-addons \
     python3 \
     python3-native \
+    futuresql \
+    qcoro \
 "
 
 RDEPENDS:${PN} += " \

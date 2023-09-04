@@ -7,7 +7,6 @@ SUMMARY = "GUI to profilers such as Valgrind"
 HOMEPAGE = "https://invent.kde.org/sdk/kcachegrind"
 LICENSE = " GFDL-1.2-or-later & GPL-2.0-only & LGPL-2.1-only & LGPL-3.0-only & LicenseRef-Qt-Commercial & Qt-LGPL-exception-1.1"
 
-
 inherit cmake_plasma
 inherit kconfig
 inherit kcoreaddons

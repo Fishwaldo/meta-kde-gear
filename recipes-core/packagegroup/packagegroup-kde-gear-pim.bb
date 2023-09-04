@@ -19,7 +19,7 @@ RDEPENDS:packagegroup-kde-gear-pim = " \
     akonadiconsole \
     kaddressbook \
     kalarm \
-    kalendar \
+    merkuro \
     knotes \
     akregator \
     grantlee-editor \

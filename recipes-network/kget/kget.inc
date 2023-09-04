@@ -8,6 +8,10 @@ HOMEPAGE = "https://invent.kde.org/network/kget"
 LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=3c8ea28d12b8a786603a5394fc50096d"
 
+SRC_URI += " \
+    file://0001-Hardcode-GMP-Version-due-to-cross-compile.patch \
+"
+
 inherit cmake_plasma
 inherit kcmutils
 inherit kconfig

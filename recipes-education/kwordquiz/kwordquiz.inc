@@ -26,6 +26,8 @@ DEPENDS = " \
     knotifications \
     knotifyconfig \
     kxmlgui \
+    qtmultimedia \
+    kirigami-addons \
 "
 
 

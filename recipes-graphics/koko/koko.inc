@@ -7,7 +7,11 @@ SUMMARY = "Image Gallery"
 HOMEPAGE = "https://invent.kde.org/graphics/koko"
 LICENSE = " CC0-1.0 & LGPL-2.0-or-later & LGPL-2.1-only & LGPL-2.1-or-later & LGPL-3.0-only & LicenseRef-KDE-Accepted-LGPL"
 
-
+SRC_URI += " \
+    file://admin1CodesASCII.txt \
+    file://admin2Codes.txt \
+    file://cities1000.zip.txt \
+"
 
 inherit cmake_plasma
 inherit kconfig

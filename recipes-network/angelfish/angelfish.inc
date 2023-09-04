@@ -26,6 +26,8 @@ DEPENDS = " \
     knotifications \
     qqc2-desktop-style \
     kirigami-addons \
+    futuresql \
+    qcoro \
 "
 
 KF5_REUSE_LICENSECHECK_ENABLED="1"
