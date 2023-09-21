@@ -58,3 +58,10 @@ FILES:${PN} += " \
     ${libdir}/plugins/pim5/akonadi/config \
     ${libdir}/plugins/pim5/kcms/kaddressbook \
 "
+
+RCONFLICTS:${PN} += " \
+    kmailtransport (<= 23.04.1) \
+"
+RREPLACES:${PN} += " \
+    kmailtransport (<= 23.04.1) \
+"

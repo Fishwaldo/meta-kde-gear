@@ -26,4 +26,5 @@ RDEPENDS:packagegroup-kde-gear-network = " \
     signon-kwallet-extension \
     tokodon \
     kdeconnect-kde \
+    konqueror \
 "

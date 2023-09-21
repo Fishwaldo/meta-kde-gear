@@ -29,3 +29,4 @@ DEPENDS = " \
 
 KF5_REUSE_LICENSECHECK_ENABLED="1"
 
+RREPLACES:${PN} = "kmailtransport (< 23.08.0)"
